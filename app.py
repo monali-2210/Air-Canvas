@@ -145,6 +145,10 @@ def main():
                     point_history.append(landmark_list[8])
                 else:
                     point_history.append([0, 0])
+                
+                # Erasing using hand gesture
+                if hand_sign_id == 3:
+                    point_history.clear()
 
                 # Finger gesture classification
                 finger_gesture_id = 0
@@ -175,7 +179,8 @@ def main():
         debug_image = draw_info(debug_image, fps, mode, number)
 
         # Screen reflection #############################################################
-        cv.imshow('Hand Gesture Recognition', debug_image)
+        cv.imshow('Air Canvas', debug_image)
+        # cv.rectangle(debug_image, (0, 0), (100, 100), (255, 0, 0), -1)
 
     cap.release()
     cv.destroyAllWindows()
